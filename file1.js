@@ -1,2 +1,1 @@
-hello
-test
+console.log("hello")
