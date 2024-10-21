@@ -147,7 +147,7 @@ while player2hp > 0 and player1hp > 0 and len(bullets) > 0:
         print("player2 win 😎🥇")
     elif player2hp == 0:
         print("player1 win 🤣🥇")
-    elif len(bullets) == 0 :
+    elif len(bullets) < 0 :
         print("out of bulltets 🛠")
         print(f' 🤣💚 is{player1hp} and 😎❤ is{player2hp}')
 
