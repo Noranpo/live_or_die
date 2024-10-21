@@ -1,6 +1,6 @@
 import random
 
-bullets = ["fake", "real", "fake", "real", "real","fake","fake","real","fake"]
+bullets = ["fake", "real", "fake","real","fake","fake","real","real","fake","real"]
 random.shuffle(bullets)  # Shuffle the bullets
 
 # items = ["k","s","k","s"]
@@ -23,25 +23,29 @@ player = person[0]
 
 player1hp = 3
 player2hp = 3
-pl1itm = 1
-pl2itm = 1
+pl1itm = 3
+pl2itm = 3
+print(f' the remaining bullets are {bullets}')
 while player2hp > 0 and player1hp > 0 and len(bullets) > 0:
     if player == "player1":
         print(f'{player} turn')
         damage = 1
         if pl1itm > 0 :
-            pic = input("gonna us(e item (k,s) or (p)-->")
+            pic = input("gonna us(e item (k,s,r) or (p)-->")
             # pic = power()
             if pic == "k":
                 damage = 2
                 pl1itm -= 1
 
-                print(f'{player} use knife')
+                print(f'{player} use knife double the damage')
             elif pic == "s":
                 print(f'{player} use soda')
                 player1hp += 1
                 pl1itm -= 1
                 print(f'{player1hp} hp now')
+            elif pic == "r":
+                pl1itm -= 1
+                print(f'one {gun()} bullet was removed')
             else:
                 print(f'{player}skipped items')
         pc = input('shoot or re-->')
@@ -76,6 +80,18 @@ while player2hp > 0 and player1hp > 0 and len(bullets) > 0:
                 print(f'🤣 ❤:{player1hp}')
                 print(f'remaning bullets {bullets}')
 
+    if len(bullets) == 0:
+        print("out of bulltets 🛠")
+        print(f' 🤣💚 is{player1hp} and 😎❤ is{player2hp}')
+        break
+
+    if player1hp <= 0:
+        print("player2 win 😎🥇")
+        break
+    elif player2hp <= 0:
+        print("player1 win 🤣🥇")
+        break
+
 
 
 
@@ -86,17 +102,21 @@ while player2hp > 0 and player1hp > 0 and len(bullets) > 0:
 
         damage = 1
         if pl2itm > 0:
-            pic = input("gonna us(e item (k,s) or (p)-->")
+            pic = input("gonna us(e item (k,s,r) or (p)-->")
             # pic = power()
             if pic == "k":
                 damage = 2
-                print(f'{player} use knife')
+                print(f'{player} use knife double the damage')
                 pl2itm -= 1
             elif pic == "s":
                 print(f'{player} use soda')
                 player2hp += 1
-                pl2itm -= 1
+                pl2itm -= 2
                 print(f'{player2hp} hp now')
+            elif pic == "r":
+                pl2itm -= 1
+                print(f'one {gun()} bullet was removed')
+
             else:
                 print(f'{player}skipped')
         pc = input('shoot or re-->')
@@ -148,10 +168,12 @@ while player2hp > 0 and player1hp > 0 and len(bullets) > 0:
         print(f' 🤣💚 is{player1hp} and 😎❤ is{player2hp}')
         break
 
-    if player1hp == 0:
+    if player1hp <= 0:
         print("player2 win 😎🥇")
-    elif player2hp == 0:
+        break
+    elif player2hp <= 0:
         print("player1 win 🤣🥇")
+        break
 
 
 
